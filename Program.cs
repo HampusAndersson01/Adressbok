@@ -47,7 +47,6 @@ namespace Adressbok{
                 writeColor("Enter choice (1-3): ",ConsoleColor.Blue);
                 choice = Console.ReadKey().KeyChar;
                 Console.ResetColor();
-
                 Console.WriteLine("\n");
                 switch (choice){
                     case '1':
