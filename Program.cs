@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Adressbok{
     class Program{
-        
-        
+        static void writeColor(string str, ConsoleColor theColor){
+            Console.ForegroundColor = theColor;
+            Console.Write(str);
+        }
         static void addName(ref string tmp,ref string[] adress){
             while (true){
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write("Enter full name: ");
+                writeColor("Enter full name: ",ConsoleColor.Blue);
                 tmp = Console.ReadLine();
                 Console.ResetColor();
                 if (tmp.Contains(" ") && tmp.Length > 3){
@@ -23,8 +24,7 @@ namespace Adressbok{
             }
         }
         static void showNames(ref string[] adress){
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Names:");
+            writeColor("Names:\n", ConsoleColor.Blue);
             Console.ResetColor();
             if(adress != null){
                 foreach(string name in adress){
@@ -44,8 +44,7 @@ namespace Adressbok{
                 Console.WriteLine("2. Show all names");
                 Console.WriteLine("3. Clear names");
                 Console.WriteLine("Q. Quit");
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write("Enter choice (1-3): ");
+                writeColor("Enter choice (1-3): ",ConsoleColor.Blue);
                 choice = Console.ReadKey().KeyChar;
                 Console.ResetColor();
                 Console.WriteLine("\n");
