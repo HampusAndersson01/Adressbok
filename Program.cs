@@ -7,23 +7,22 @@ namespace Adressbok{
             Console.ForegroundColor = theColor;
             Console.Write(str);
         }
-        static void addName(ref string tmp,ref string[] adress){
+        static void addName(ref string tmp,ref List<string> adress){
             while (true){
-                writeColor("Enter full name: ",ConsoleColor.Blue);
+                writeColor("Enter first name: ",ConsoleColor.Blue);
                 tmp = Console.ReadLine();
                 Console.ResetColor();
-                if (tmp.Contains(" ") && tmp.Length > 3){
-                    List<string> list = new List<string>(adress.ToList());
-                    list.Add(tmp);
-                    adress = list.ToArray();
+                if (!String.IsNullOrEmpty(tmp))
+                {
+                    adress.Add(tmp);
                     break;
-                }
+                }            
                 else{
-                    Console.WriteLine("Please enter a both first and surname.");
+                    Console.WriteLine("Please enter a name");
                 }
             }
         }
-        static void showNames(ref string[] adress){
+        static void showNames(ref List<string> adress){
             writeColor("Names:\n", ConsoleColor.Blue);
             Console.ResetColor();
             if(adress != null){
@@ -34,9 +33,13 @@ namespace Adressbok{
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
+        
+        static void clearNames(ref List<string> adress){
+
+        }
         static void Main(string[] args){
             char choice;
-            string[] adress = {};
+            List<string> adress = new List<string>();
             string tmp = "";
             while (true){
                 Console.Clear();
@@ -58,7 +61,7 @@ namespace Adressbok{
                         break;
 
                     case '3':
-                        adress = null;
+                        adress.Clear();
  
                         break;
                     case 'q' or 'Q':
