@@ -96,18 +96,7 @@ namespace Adressbok{
                 Console.WriteLine(str);
             }
         }
-        static void changeUp(ref int currentChoice){
-            if (currentChoice > 1)
-            {
-                currentChoice--;
-            }
-        }
-        static void changeDown(ref int currentChoice){
-            if (currentChoice < 6)
-            {
-                currentChoice++;
-            }
-        }
+        
         static void Main(string[] args){
             int choice;
             List<string> adress = new List<string>();
@@ -132,9 +121,9 @@ namespace Adressbok{
                         choice = currentChoice;
                         break;
                     }else if( key.Key == ConsoleKey.DownArrow){
-                        changeDown(ref currentChoice);
+                        currentChoice++;
                     }else if(key.Key == ConsoleKey.UpArrow){
-                        changeUp(ref currentChoice);
+                        currentChoice--;
                     }
                     
                 }
